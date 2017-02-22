@@ -1,0 +1,7 @@
+# IPython log file
+
+%cd "C:\Users\MHHSStudent\Documents\GitHub\1.3.9"
+%run "C:\Users\MHHSStudent\Documents\GitHub\1.3.9\prisoners_dilemma.py"
+# Wed, 22 Feb 2017 14:16:47
+%run "C:\Users\MHHSStudent\Documents\GitHub\1.3.9\prisoners_dilemma.py"# Wed, 22 Feb 2017 14:17:06
+play_tournament(15)

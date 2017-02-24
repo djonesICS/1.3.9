@@ -34,7 +34,6 @@ def play_round(player1, player2, history1, history2, score1, score2):
     TREAT = 100 # (T) when you betray your partner
     SEVERE_PUNISHMENT = -500 # (S) when your partner betrays you
     PUNISHMENT = -250 # (P) when both players betray each other
-    TRAITOROUS_PUNISHMENT = -700 # (TR) when you or your partner betrays four times
     # Keep T > R > P > S to be a Prisoner's Dilemma
     # Keep 2R > T + S to be an Iterative Prisoner's Dilemma
     
@@ -50,7 +49,7 @@ def play_round(player1, player2, history1, history2, score1, score2):
     new_history2 = history2 + action2
     
     #Change scores based upon player actions
-    if action1 not in ('c','b','s') or action2 not in ('c','b','s'):
+    if action1 not in ('c','b') or action2 not in ('c','b'):
     # Do nothing if someone's code returns an improper action
         new_score1 = score1
         new_score2 = score2

@@ -203,14 +203,14 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 4:
         if getting_team_name:
-            return 'loyal displacer of blame'
+            return 'loyal vengeful'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
             if len(opponent_history)==0: #It's the first round: collude
                 return 'c'
             elif history[-1]=='c' and opponent_history[-1]=='b':
-                return 'o' # blames other in anger of being betrayed
+                return 'b' # betray is they were severely punished last time
             else:
                 return 'c' #otherwise collude
 
@@ -424,14 +424,14 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 12:
         if getting_team_name:
-            return 'loyal displacer of blame'
+            return 'loyal vengeful'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
             if len(opponent_history)==0: #It's the first round: collude
                 return 'c'
             elif history[-1]=='c' and opponent_history[-1]=='b':
-                return 'o' # blames other in anger of being betrayed
+                return 'b' # betray is they were severely punished last time
             else:
                 return 'c' #otherwise collude
 
@@ -513,12 +513,12 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 16:
         if getting_team_name:
-            return 'supporter of blaming other'
+            return 'loyal vengeful'
         else:
             if len(opponent_history)==0: #It's the first round: collude
                 return 'c'
-            elif history[-1]=='c' and opponent_history[-1]=='o':
-                return 'o' # support his/her partner in blaming other
+            elif history[-1]=='c' and opponent_history[-1]=='b':
+                return 'b' # betray is they were severely punished last time
             else:
                 return 'c' #otherwise collude
     

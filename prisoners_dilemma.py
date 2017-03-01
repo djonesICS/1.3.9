@@ -229,17 +229,12 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     ######
     ######
     #
+    #This example player always betrays.      
     elif player == 5:
         if getting_team_name:
-            return 'betray every 3rd round'
+            return 'backstabber'
         else:
-            # use history, opponent_history, score, opponent_score
-            # to compute your strategy
-            size = len(history)
-            if(size%3==0): #the number of rounds played is a multiple of 3
-                return 'c'
-            else:
-                return 'b'
+            return 'b'
     
     
     
@@ -256,14 +251,19 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
     #
     elif player == 6:
         if getting_team_name:
-            return 'loyal vengeful'
+            return 'loyal vengeful and continues betraying once betrayed'
         else:
             # use history, opponent_history, score, opponent_score
             # to compute your strategy
+            size = len(history)
             if len(opponent_history)==0: #It's the first round: collude
                 return 'c'
             elif history[-1]=='c' and opponent_history[-1]=='b':
-                return 'b' # betray is they were severely punished last time
+                return 'b' # betray if they were severely punished last time
+            elif history[-1]=='b' and opponent_history[-1]=='b':
+                return 'b' # betray if they were punished again 
+            elif history[-1]=='b' and opponent_history[-1]=='c':
+                return 'b' # got used to betraying 
             else:
                 return 'c' #otherwise collude
     
@@ -276,20 +276,14 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
 
     ######
-    ######        
+    ######
     #
+    #This example player always betrays.      
     elif player == 7:
         if getting_team_name:
-            return 'supporter of blaming other'
+            return 'backstabber'
         else:
-            # use history, opponent_history, score, opponent_score
-            # to compute your strategy
-            if len(opponent_history)==0: #It's the first round: collude
-                return 'c'
-            elif history[-1]=='c' and opponent_history[-1]=='o':
-                return 'o' # support his/her partner in blaming other
-            else:
-                return 'c' #otherwise collude
+            return 'b'
     
 
 
